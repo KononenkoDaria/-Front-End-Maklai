@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<head lang="en">
+    <meta charset="utf-8">
+    <title>Калькулятор</title>
+</head>
+
+<body>
+    <label for="num1">Введіть перше число</label>
+    <input id="num1">
+    <br>
+    <label for="operator_btns">Виберіть математичну операцію</label>
+    <br>
+    <div id="operator_btns">
+        <button id="plus" class="operator" onclick="operator='+'">+</button>
+        <button id="minus" class="operator" onclick="operator='-'">-</button>
+        <button id="times" class="operator" onclick="operator='*'">*</button>
+        <button id="divide" class="operator" onclick="operator='/'">/</button>
+    </div>
+
+    <label for="num2">Введіть друге число</label>
+    <input id="num2">
+    <br>
+    <button onclick="func()">Дорівнює</button>
+
+    <p id="result"></p>
+    
+    <script>
+        var operator;
+        function func(){
+            var num1 = Number(document.getElementById("num1").value);
+            var num2 = Number(document.getElementById("num2").value);
+            var result; 
+
+            switch (operator) {
+                case '+':
+                    result = num1 + num2;
+                    break;
+                case '-':
+                    result = num1 - num2;
+                    break;
+                case '*':
+                    result = num1 * num2;
+                    break;
+                case '/':
+                    if (num2) {
+                        result = num1 / num2;
+                    } else {
+                        result = 'Нескінченність';
+                    }
+                break;
+                default:
+                    result = 'Виберіть операцію';
+            }
+
+            document.getElementById("result").innerHTML = result;
+        }
+    </script>
+</body>
